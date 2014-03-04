@@ -4,49 +4,16 @@
       xmlns:c="http://java.sun.com/jsp/jstl/core"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"  
-      xmlns:p="http://primefaces.org/ui">  
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">  
 
     <h:head>
         <h:outputStylesheet library="css" name="general.css"/>
     </h:head>  
 
     <h:body>  
-        
-        <p:growl widgetVar="generalGrowl" showDetail="true" sticky="true" escape="false"/>
-
-        <h:form>
-            <p:toolbar>
-                <p:toolbarGroup align="left">
-                    <p:commandButton type="button" value="Nuevo" icon="ui-icon-document" />
-
-                    <p:commandButton type="button" value="Abrir" icon="ui-icon-folder-open"/>
-
-                    <p:separator />
-
-                    <p:commandButton type="button" title="Guardar" icon="ui-icon-disk"/>
-                    <p:commandButton type="button" title="Eliminar" icon="ui-icon-trash"/>
-                    <p:commandButton type="button" title="Imprimir" icon="ui-icon-print"/>
-                </p:toolbarGroup>
-
-                <p:toolbarGroup align="right">
-                    <p:menuButton value="Opciones">
-                        <p:menuitem value="PrimeFaces" url="http://www.primefaces.org" />
-                        <p:menuitem value="ShowCase"  
-                                    url="http://www.primefaces.org/showcase" />
-                        <p:menuitem value="TouchFaces"  
-                                    url="http://www.primefaces.org/showcase/touch" />
-                    </p:menuButton>  
-                </p:toolbarGroup>  
-
-            </p:toolbar>  
-        </h:form>
-
-        <p:socket onMessage="handleMessage" channel="/general" />  
-
-        <script type="text/javascript">
-            function handleMessage(facesmessage) {
-                generalGrowl.show([facesmessage]);
-            }
-        </script>
+        <ui:include src="menu.xhtml"/>
+        <h:graphicImage library="images" name="push_it_logo.png"/>
+        <p:graphicImage library="images" name="push_it_logo.png"/>
     </h:body>  
 </html>

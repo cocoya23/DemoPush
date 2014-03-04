@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"  
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:body>
+        <ui:composition>
+            <p:growl widgetVar="generalGrowl" showDetail="true" sticky="true" escape="false"/>
+
+            <p:menubar>
+                <p:menuitem url="/" icon="ui-icon-home"/>
+                <p:menuitem url="/contador.xhtml" value="Contador"/>
+                <p:submenu label="Mensage">
+                    <p:menuitem url="/mostrarmsg.xhtml" value="Recibir msg"/>
+                    <p:menuitem url="/enviarmsg.xhtml" value="Enviar msg"/>
+                </p:submenu>
+                <p:menuitem url="/enviarNotificacion.xhtml" value="Enviar notificación"/>
+            </p:menubar>
+            
+            <p:socket onMessage="handleMessage" channel="/general" />  
+
+            <script type="text/javascript">
+                function handleMessage(facesmessage) {
+                    generalGrowl.show([facesmessage]);
+                }
+            </script>
+        </ui:composition>
+    </h:body>
+</html>
+
