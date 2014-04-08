@@ -1,0 +1,10 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+.ui-widget{
+    font-size: 12px !important;
+}
+.ui-growl{
+    top: 40px !important;
+}

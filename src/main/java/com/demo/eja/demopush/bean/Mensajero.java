@@ -8,11 +8,11 @@ package com.demo.eja.demopush.bean;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 @ManagedBean(name = "mensajero")
-@ViewScoped
+@SessionScoped
 public class Mensajero {
     
     private String mensaje;

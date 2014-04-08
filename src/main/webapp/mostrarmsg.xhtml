@@ -17,12 +17,11 @@
         <ui:include src="menu.xhtml"/>
 
         <h:form id="form">
-            <h:outputText id="out" value="#{mensajero.mensaje}" style="font-size: 80px;" /><br/>
-            <span id="leyenda"></span>
+            <span id="leyenda" style="font-size: 80px;"></span>
         </h:form>
 
         <p:socket channel="/mensajero" onMessage="handleMessage">
-            <p:ajax event="message" update="form:out" />
+            <p:ajax event="message" />
         </p:socket>
 
         <script type="text/javascript">
